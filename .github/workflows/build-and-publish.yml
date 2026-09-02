@@ -57,6 +57,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw, enable=true, value=${{ github.run_id }}, priority=1000
+            type=raw, enable=true, value=${{ github.sha }}, priority=900
             type=ref,event=branch
 
       - name: Build and push Docker image
